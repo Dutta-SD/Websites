@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<meta charset="UTF-8">
+		<title>Random quote Machine</title>
+		
+		<!--Inclue Bootstrap-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		 integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+		  crossorigin="anonymous">
+	</head>
+	
+	<!-- Beginneing of Body-->		
+	<body>
+		<div id="app">
+			<div class="container">
+				<div class='row'>
+					<div class="col-sm-6 offset-md-3">
+						<div class="card mt-5" style="width: 18rem;">
+				 			 <div class="card-body">
+								<p class="card-text">{{currentQuote}}</p>
+								<p> - Sandip Dutta</p> 
+				  			</div>
+				  			<button class="btn btn-primary"
+				  			@click='newQuote'>Next Quote</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</body>
+	
+	<!-- Vue js Script -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="./quotes.js"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				quotes,
+				currentQuote: quotes[0]			 
+			},
+			methods: {
+				newQuote: function(){
+					const num = Math.floor(Math.random() * quotes.length)				
+					this.currentQuote = quotes[num]
+				}
+			}			
+		})
+		
+		
+	</script>
+	
+</html>
